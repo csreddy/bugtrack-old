@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('bug.controllers', ['ui.bootstrap', 'textAngular']);
+var app = angular.module('bug.controllers', ['ui.bootstrap']);
 app.constant('RESTURL', 'http://' + location.hostname + ':' + location.port);
 
 app.controller('newBugCtrl', ['$scope', '$location', 'RESTURL', 'BugService', 'bugFactory', 'bugConfigFactory', 'Flash',

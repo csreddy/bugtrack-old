@@ -23,26 +23,37 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
+ <div class="container-fluid">
     <div ng-include src="'views/partials/navbar.partial.html'"></div>
-
+</div> 
 
     <!-- Add your site or application content here -->
-    <div class="row">
-    <!-- empty column -->
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-  <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+<div class="row-offcanvas row-offcanvas-left">
+<div class="container-fluid">
+    <div ng-include src="'views/partials/sidebar.partial.html'"></div>
 </div>
-    <div class="container-fluid" ng-view=""></div>
-    
-<div class="footer">
+  <div id="main">
+      <div class="col-md-12">
+          <p class="visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+          </p>
+          <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+      <div class="container-fluid" ng-view=""></div>    
+      </div>
+      <div class="footer">
   <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
 </div>
-    </div>
-    </div>
+  </div>
+</div><!--/row-offcanvas -->
+  
+  
+  
+    
+    
+
+
+
+
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>

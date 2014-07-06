@@ -21,3 +21,10 @@ $("input[type='text']").each(function(){$(this).val('abcdefghij')});
 $('textarea').each(function(){$(this).val('abcdefghij')});
 $("select").each(function(){$(this).prop('selectedIndex', 1)})
 $("input[type='radio']").first().val('Not Ready')
+
+
+
+http://plnkr.co/edit/RQEM7So57zgRapoHHhqi?p=preview
+
+curl --anyauth --user admin:admin -T ./config.json -i   -H "Content-type: application/json"   http://localhost:8003/v1/documents?uri=config.json
+
