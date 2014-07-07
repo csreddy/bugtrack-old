@@ -156,6 +156,7 @@ app.controller('newBugCtrl', ['$scope', '$location', 'RESTURL', 'BugService', 'b
             bug.id = bugId;
             bug.createdAt = new Date();
             bug.modifiedAt = bug.createdAt;
+            bug.status = $scope.config.status[1];
             bug.title = $scope.title;
             bug.submittedBy = 'sudhakar'; //$scope.creator;
             bug.assignTo = $scope.assignTo;
@@ -203,35 +204,67 @@ app.controller('newBugCtrl', ['$scope', '$location', 'RESTURL', 'BugService', 'b
         // text editor for bug descrition	
         //  $scope.descrizione = undefined;
 
-
-
-
-
     }
 ]);
 
 
 
-app.controller('bugListCtrl', ['$scope', 'RESTURL', 'BugService', 'bugFactory', 'Flash',
+app.controller('bugListCtrl', ['$scope', '$location', 'RESTURL', 'BugService', 'bugFactory', 'Flash',
 
-    function($scope, RESTURL, BugService, bugFactory, Flash) {
+    function($scope, $location, RESTURL, BugService, bugFactory, Flash) {
 
         BugService.getBugs().then(function(response) {
             $scope.bugs = response.data.results;
             console.log($scope.bugs);
         });
 
-        $scope.getBugDetails = function(uri) {
-            console.log('obj', uri);
-            BugService.getBug(uri).then(function(response) {
-                    console.log(response);
-                    $scope.bugDetails = JSON.stringify(response.data);
-                    Flash.addAlert('success', 'opened ' + uri);
+        $scope.goToBug = function(uri) {
+            $location.path(uri);
+        };
+
+    }
+]);
+
+
+app.controller('bugViewCtrl', ['$scope', '$location', 'RESTURL', 'BugService', 'bugFactory', 'bugConfigFactory', 'Flash',
+
+    function($scope, $location, RESTURL, BugService, bugFactory, bugConfigFactory, Flash) {
+
+        $scope.config = {};
+        var current;
+        var uri = $location.path().replace('/bug/', '') + '.json';
+
+        bugConfigFactory.getConfig().then(function(response) {
+            $scope.config = response.data;
+        });
+
+        BugService.getBug(uri).then(function(response) {
+            current = response.data;
+        });
+
+
+        BugService.getBug(uri).then(function(response) {
+                console.log(response.data);
+                $scope.bug = response.data;
+                //  Flash.addAlert('success', 'opened ' + uri);
+            },
+            function(response) {
+                Flash.addAlert('danger', response.data.error.message);
+            });
+
+
+        // update bug status
+        $scope.updateStatus = function() {
+            var uri = $scope.bug.id + '.json';
+            BugService.putDocument(uri, $scope.bug).then(function() {
+                    console.log('bug status changed from ' + current.status + ' to ' + $scope.bug.status);
+                    Flash.addAlert('success', $scope.bug.id + ' was successfully updated');
+
                 },
                 function(response) {
                     Flash.addAlert('danger', response.data.error.message);
-                });
+                }
+            );
         };
-
     }
 ]);

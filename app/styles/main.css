@@ -108,7 +108,7 @@ body {
   overflow-x:hidden;
 }
 #main {
-  height:100%; /* comment this non sticky sidebar */
+  height:100%; /* comment this for non sticky sidebar */
   overflow:auto; 
 }
 
@@ -139,3 +139,17 @@ body {
     top: 0;
   }
 }
+/* login drop down*/
+.navbar-right{
+  padding-right: 25px;
+}
+
+.loginform {
+  padding: 10px;
+}
+
+.dropdown-menu{
+  width: 260px; 
+  border-top: 4px;
+}
+/* end login dropdown */

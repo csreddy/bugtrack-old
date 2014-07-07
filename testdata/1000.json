@@ -1,0 +1,43 @@
+[{
+    "id": 1000,
+    "createdAt": "2014-03-31T14:46:27:945Z",
+    "modifiiedAt": "2014-05-29T21:02:02:85Z",
+    "resolvedAt": "2014-05-10T01:22:26:440Z",
+    "kind": "Bug",
+    "severity": "P3 - Major",
+    "status": "Fix",
+    "title": "voluptate labore ipsum deserunt ex eu et aliquip nostrud eiusmod esse eu. Veniam aliquip reprehenderit commodo",
+    "submittedBy": "Boone Barr",
+    "assignTo2": {
+        "name": "Stout Calhoun",
+        "email": "stoutcalhoun@synkgen.com",
+        "username": "Claudette"
+    },
+    "assignTo": "Lauren Durham",
+    "description": "Est consequat amet est est nostrud eiusmod esse eu. Veniam aliquip reprehenderit commodo amet consectetur ex ullamco consequat incididunt.",
+    "samplequery": "Ipsum cillum cillum fugiat et nulla incididunt. Et reprehenderit laboris ipsum enim consequat irure do occaecat pariatur pariatur.",
+    "sampledata": "Ipsum laboris ullamco amet qui eu sunt magna irure eiusmod est. Elit non dolor consequat est eu anim culpa.",
+    "stacktrace": "In magna eiusmod voluptate magna reprehenderit sunt. Laboris occaecat elit est aliquip mollit cillum adipisicing culpa. Do sint nulla mollit qui culpa sit nostrud adipisicing proident. Lorem Lorem aliqua proident dolore laborum nisi. Nostrud dolore aliquip mollit aliquip in. Consectetur amet enim dolor nulla duis. Ut tempor eu Lorem laborum reprehenderit ullamco enim duis cillum.\r\n",
+    "category": "Bi-Temporal",
+    "priority": 3,
+    "relation": "Documentation task for",
+    "relatedTo": [
+        3882,
+        6510,
+        2576,
+        4126
+    ],
+    "version": "7.0-2.2",
+    "platform": "windows(32-bit)",
+    "tofixin": "7.0-2.4",
+    "fixedin": "7.0-2.4",
+    "images": null,
+    "memory": "734 mb",
+    "processors": 8,
+    "note": "Ex nisi ullamco quis fugiat esse ad magna. Proident Lorem anim ullamco anim ipsum dolor fugiat nisi culpa ipsum eiusmod. Ex quis anim ea labore minim sit reprehenderit.\r\n",
+    "headline": "Officia occaecat proident cupidatat nisi minim minim mollit voluptate nostrud eiusmod dolor nulla.",
+    "supportDescription": "Voluptate minim Lorem minim mollit pariatur cupidatat elit culpa cillum. Labore aute voluptate elit anim incididunt ipsum id. Incididunt ut ea ut culpa. In eu esse officia consequat eu consequat. Ipsum duis mollit reprehenderit excepteur proident. Culpa sint elit duis quis ex cupidatat exercitation nulla enim sint.\r\n",
+    "workaround": "Est non cillum qui consectetur enim ex officia cillum culpa ullamco laborum deserunt pariatur. Sint irure Lorem sit deserunt est est sunt et commodo sunt. Commodo aute ad incididunt irure laboris Lorem do eiusmod ex dolor aute. Nisi velit aliquip occaecat veniam amet consequat excepteur adipisicing cupidatat in consectetur incididunt.\r\nQuis consequat officia culpa nulla sunt culpa officia in nostrud. Nulla esse tempor dolore nulla cillum dolore fugiat sint voluptate consequat dolor. Mollit proident aute sit labore cupidatat aliquip aute ea nulla laboris ut culpa. Adipisicing laborum qui et nisi non duis sint duis tempor enim id duis voluptate eu. Dolore sunt labore eiusmod exercitation dolor et ea labore esse velit dolore ut proident. Mollit cupidatat est elit officia tempor cillum pariatur deserunt sit cillum mollit non eiusmod.\r\n",
+    "publishStatus": "Prepare",
+    "customerImpact": "Eu ad pariatur duis est ex. Incididunt laborum minim qui velit nostrud reprehenderit ullamco. Non eiusmod elit amet commodo occaecat ipsum cillum anim."
+}]

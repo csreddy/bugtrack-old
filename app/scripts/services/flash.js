@@ -2,7 +2,7 @@
 
 var app = angular.module('bugtrackApp.flashService', []);
 
-app.service('Flash', function($rootScope) {
+app.service('Flash', function($rootScope, $timeout) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     $rootScope.alerts = [];
 
@@ -19,9 +19,12 @@ app.service('Flash', function($rootScope) {
             'type': type,
             'msg': msg
         });
+        $timeout(function() {
+            $rootScope.alerts.pop();
+        }, 5000);
     };
 
-    this.closeAlert = function(index) {
+    $rootScope.closeAlert = function(index) {
         $rootScope.alerts.splice(index, 1);
     };
 

@@ -1,0 +1,103 @@
+<div class="row">
+	<legend></legend> <!-- artifical padding-top  -->
+	</div>
+<div class="col-md-4 pull-right">
+	<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{bug.kind}} -  {{bug.id}}</h3>
+  </div>
+  <div class="panel-body">
+<table class="table table-striped">
+ <tr>
+ 	<td colspan="" rowspan=""><b>Status</b></td>
+ 	<td colspan="" rowspan="" ng-model="status" editable-select="bug.status" e-ng-options="s as s for s in config.status" onbeforesave="updateStatus($data)">{{bug.status}}</td>
+ </tr>
+  <tr>
+ 	<td colspan="" rowspan=""><b>Severity</b></td>
+ 	<td colspan="" rowspan="" editable-select="bug.severity" e-ng-options="s as s for s in config.severity">{{bug.severity}}</td>
+ </tr>
+  <tr>
+ 	<td colspan="" rowspan=""><b>Category</b></td>
+ 	<td colspan="" rowspan="" editable-select="bug.category" e-ng-options="c as c for c in config.categories">{{bug.category}}</td>
+ </tr>
+  <tr>
+ 	<td colspan="" rowspan=""><b>Priority</b></td>
+ 	<td colspan="" rowspan="" editable-select="bug.priority" e-ng-options="p.level as p.title for p in config.priority">{{bug.priority}}</td>
+ </tr>
+  <tr>
+ 	<td colspan="" rowspan=""><b>Version</b></td>
+ 	<td colspan="" rowspan="">{{bug.version}}</td>
+ </tr>
+   <tr>
+ 	<td colspan="" rowspan=""><b>To fix in</b></td>
+ 	<td colspan="" rowspan="">{{bug.tofixin}}</td>
+ </tr>
+  <tr>
+ 	<td colspan="" rowspan=""><b>Fixed in</b></td>
+ 	<td colspan="" rowspan="">{{bug.fixedin}}</td>
+ </tr>
+  <tr>
+ 	<td colspan="" rowspan=""><b>Memory Size</b></td>
+ 	<td colspan="" rowspan="">{{bug.memory}}</td>
+ </tr>
+  <tr>
+ 	<td colspan="" rowspan=""><b>Resolved on</b></td>
+ 	<td colspan="" rowspan="">{{bug.resolvedAt}}</td>
+ </tr>
+  <tr>
+ 	<td colspan="" rowspan=""><b>Tested on</b></td>
+ 	<td colspan="" rowspan="">{{bug.resolvedAt}}</td> <!-- same as resolved date -->
+ </tr>
+ <tr>
+ 	<td colspan="" rowspan=""><b>Reported on</b></td>
+ 	<td colspan="" rowspan="">{{bug.createdAt}}</td>
+ </tr>
+    <tr>
+ 	<td colspan="" rowspan=""><b>Subscribe others</b></td>
+ 	<td colspan="" rowspan="">TODO</td>
+ </tr>
+</table>
+<legend><h5>Related bugs</h5></legend>
+#TODO   
+  </div>
+</div>
+</div>
+  
+<accordion close-others="false">
+    <accordion-group heading="{{bug.title}}" is-open="true" is-disabled="false">
+<!--     <accordion-heading>
+    <p>{{bug.title}}</p>
+    </accordion-heading> -->	
+   <p> {{bug.description}}</p>
+   <p ng-show="bug.note"><h6>Note:</h6><code>{{bug.note}}</code></p><br>
+   <div ng-show="bug.samplequery">
+   	<legend><h5>Sample Query</h5></legend>
+ 	{{bug.samplequery}}
+   </div>
+    <div ng-show="bug.sampledata">
+    <legend><h5>Sample Data</h5></legend>
+    {{bug.sampledata}}	
+    </div>
+      <div ng-show="bug.stacktrace" style="overflow: auto; height:200px;">
+     <legend><h5>Error Stacktrace</h5></legend>
+    <pre>{{bug.stacktrace}}</pre>
+      </div>
+
+    </accordion-group>
+  <accordion-group heading="Comments" is-open="true">comments go here</accordion-group>	
+  <accordion-group heading="Comments" ng-repeat="commen in bug.comments" is-open="true">{{bug.comment}}</accordion-group><br>
+  <div class="row">
+  	 <div class="col-md-8">
+  	 <textarea class="form-control" ng-model="comment" id="supportDescription" name="supportDescription" placeholder="Add a comment" rows="4"></textarea><br>
+  	  <button id="update" name="update" class="btn btn-primary">Update</button>
+  </div>
+  </div>
+    </accordion>
+
+
+
+
+
+
+
+

@@ -1,8 +1,7 @@
 <h5>Bug List</h5>
           <div class="well well-sm">
-          
           <ul ng-repeat="bug in bugs">
-            <li><a href ng-click="getBugDetails(bug.uri)">{{bug.uri}}</a></li>
+            <li><a ng-href="#/bug/{{bug.uri.replace('.json', '')}}">{{bug.uri}}</a></li>
           </ul>
           </div>  
 
