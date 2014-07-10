@@ -28,3 +28,4 @@ http://plnkr.co/edit/RQEM7So57zgRapoHHhqi?p=preview
 
 curl --anyauth --user admin:admin -T ./config.json -i   -H "Content-type: application/json"   http://localhost:8003/v1/documents?uri=config.json
 
+curl --anyauth --user admin:admin -T ./1000.json -i   -H "Content-type: application/json"   http://localhost:8003/v1/documents?uri=1000.json

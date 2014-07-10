@@ -231,33 +231,52 @@ app.controller('bugViewCtrl', ['$scope', '$location', 'RESTURL', 'BugService', '
     function($scope, $location, RESTURL, BugService, bugFactory, bugConfigFactory, Flash) {
 
         $scope.config = {};
-        var current;
+        var updateBug;
         var uri = $location.path().replace('/bug/', '') + '.json';
 
         bugConfigFactory.getConfig().then(function(response) {
             $scope.config = response.data;
-        });
-
-        BugService.getBug(uri).then(function(response) {
-            current = response.data;
+            console.log('config: ', $scope.config);
         });
 
 
         BugService.getBug(uri).then(function(response) {
                 console.log(response.data);
                 $scope.bug = response.data;
+                updateBug = response.data;
+                console.log('updateBug', updateBug);
+
                 //  Flash.addAlert('success', 'opened ' + uri);
             },
             function(response) {
                 Flash.addAlert('danger', response.data.error.message);
             });
 
+        $scope.$watch('bug', function() {
+            console.log('watching...');
+        }, true);
 
-        // update bug status
-        $scope.updateStatus = function() {
+        // update bug 
+        $scope.updateBug = function() {
             var uri = $scope.bug.id + '.json';
-            BugService.putDocument(uri, $scope.bug).then(function() {
-                    console.log('bug status changed from ' + current.status + ' to ' + $scope.bug.status);
+            updateBug.status = $scope.status || $scope.bug.status;
+            updateBug.assignTo = ($scope.assignTo === undefined) ? $scope.bug.assignTo : JSON.parse($scope.assignTo);
+
+            console.log(updateBug.assignTo);
+
+            updateBug.category = $scope.category || $scope.bug.category;
+            updateBug.tofixin = $scope.tofixin || $scope.bug.tofixin;
+            updateBug.severity = $scope.severity || $scope.bug.severity;
+            updateBug.priority = ($scope.priority === undefined) ? $scope.bug.priority : JSON.parse($scope.priority);
+            updateBug.version = $scope.version || $scope.bug.version;
+            updateBug.platform = $scope.platform || $scope.bug.platform;
+            updateBug.fixedin = $scope.fixedin || $scope.bug.fixedin;
+            //updateBug.comment.push($scope.newcomment);
+
+            BugService.putDocument(uri, updateBug).then(function() {
+                    //      console.log('updateBug', updateBug);
+                    console.log('bug changed from ', updateBug);
+                    console.log('bug changed to', $scope.bug);
                     Flash.addAlert('success', $scope.bug.id + ' was successfully updated');
 
                 },
