@@ -17,6 +17,7 @@
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/jquery-te.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.min.css"></link>
     <!-- endbuild -->
   </head>
   <body ng-app="bugtrackApp">
@@ -37,7 +38,7 @@
           <p class="visible-xs">
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
           </p>
-          <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+          <alert ng-repeat="alert in alerts" type="{{alert.type}}" ng-bind-html="alert.msg" close="closeAlert($index)"></alert>
       <div class="container-fluid" ng-view=""></div>    
       </div>
       <div class="footer" id="footer">
@@ -75,25 +76,30 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+  <script src="//cdn.jsdelivr.net/wysihtml5/0.3.0/wysihtml5-0.3.0.min.js" type="text/javascript"></script>
+    <script src="bower_components/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.all.min.js"></script>
+  
+
+
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/bugctrl.js"></script>
+        <script src="scripts/controllers/bugconfig.js"></script>
         <script src="scripts/services/bugservice.js"></script>
         <script src="scripts/services/bugfactory.js"></script>
-        <script src="scripts/controllers/bugconfig.js"></script>
         <script src="scripts/services/bugconfigfactory.js"></script>
         <script src="scripts/directives/angulartexteditor.js"></script>
+        <script src="scripts/directives/wysiHtml5.js"></script>
        <!--   <script src="scripts/directives/textAngular.min.js"></script> -->
-        <script src="scripts/utils/util.js"></script>
-        <script src="scripts/utils/jquery-te-1.4.0.min.js"></script>
-        <script src="scripts/utils/jquery-ui.min.js"></script>
         
         
         <script src="scripts/services/flash.js"></script>
        <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+      <script src="scripts/utils/util.js"></script>
         <!-- endbuild -->
 </body>
 </html>

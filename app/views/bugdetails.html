@@ -4,7 +4,7 @@
 <div class="col-md-3 pull-left">
 	<div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title">{{bug.kind}} -  {{bug.id}}</h3>
+    <h3 class="panel-title"><a ng-href="#/bug/{{bug.id}}">{{bug.kind}} -  {{bug.id}}</a></h3>
   </div>
   <div class="panel-body">
 <table class="table table-striped">
@@ -149,8 +149,11 @@
 <!--     <accordion-heading>
     <p>{{bug.title}}</p>
     </accordion-heading> -->	
-   <p> {{bug.description}}</p>
-   <p ng-show="bug.note"><h6>Note:</h6><code>{{bug.note}}</code></p><br>
+   <p ng-bind-html="bug.description"></p>
+   <div ng-show="bug.note">
+     <p><h6>Note:</h6><code>{{bug.note}}</code></p><br>
+   </div>
+   
    <div ng-show="bug.samplequery">
    	<legend><h5>Sample Query</h5></legend>
  	{{bug.samplequery}}
@@ -167,7 +170,11 @@
       </div>
 
     </accordion-group>
- <!--  <accordion-group heading="Comments" is-open="true">comments go here</accordion-group>	 -->
+  <accordion-group heading="Changes" is-open="true">
+  <ul ng-repeat="each in bug.changes">
+    <li ng-repeat="(key, value) in each.change">{{key}} changed from {{value.from}} to <span class="label label-success">{{value.to}}</span></li>
+  </ul>
+  </accordion-group>
   <accordion-group heading="Comments" ng-repeat="comment in bug.comments" is-open="true">{{bug.comment}}</accordion-group>
    </accordion><br>
 <!-- ************************************************ -->

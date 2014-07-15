@@ -12,7 +12,8 @@ var app = angular.module('bugtrackApp', [
     'bugConfig.controllers',
     'bugTexteditor.directive',
     'bugtrackApp.flashService',
-    'xeditable'
+    'xeditable',
+    'wysiHtml5.directive'
     //   'angular-flash.service',
     //  'angular-flash.flash-alert-directive'
 ]);

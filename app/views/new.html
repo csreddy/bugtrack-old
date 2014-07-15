@@ -21,9 +21,9 @@
          <div class="input-group">
   <div class="input-group-btn">
     <!-- Button and dropdown menu -->
-  <select type="text" class="form-control" style="width: 100px">
-                <option ng-selected="kind === 'Bug'" ng-repeat="kind in config.kind">{{kind}}</option>
-              </select>
+  <select ng-model="kind" type="text" class="form-control" style="width: 100px">
+      <option ng-selected="kind === 'Bug'" ng-repeat="kind in config.kind" value="{{kind}}">{{kind}}</option>
+  </select>
   </div>
  <input id="title" ng-model="title" name="title" type="text" placeholder="Bug title" class="form-control">
 </div>
@@ -34,9 +34,8 @@
             <div class="form-group">
               <label class="col-md-2 control-label" for="description">Description</label>
               <div class="col-md-9">
-                <textarea class="form-control" ng-model="description" id="description" name="description" placeholder="Enter bug description here..." rows="8"></textarea>
-                <!-- <p>  <textarea  angularte ng-model="descrizione"> bug descriotion </textarea></p> -->
-               <!-- <text-angular ta-toolbar="[['h1','h2','h3','pre'],['bold'], ['italics']]"></text-angular> -->
+             <!--    <textarea class="form-control" ng-model="description" id="description" name="description" placeholder="Enter bug description here..." rows="8"></textarea> -->
+              <textarea rich-text-editor  class="form-control"  ng-model="description" id="description" name="description" placeholder="Enter bug description here..." rows="8"></textarea>
               </div>
             </div>
 
@@ -91,7 +90,7 @@
               <label class="col-md-2 control-label" for="assignTo">Assign To</label>
               <div class="col-md-3">
                 <select id="assignTo" ng-model="assignTo" ng-change="setAssignTo(assignTo)" name="assignTo" type="text" placeholder="Assign to" class="form-control">
-                    <option ng-repeat="(key, user) in config.users.sort()"  value="{{user.name}}">
+                    <option ng-repeat="user in config.users"  value="{{user}}">
                     {{user.name}}</option>
                 </select>
               </div>
@@ -109,7 +108,7 @@
               <label class="col-md-2 control-label" for="priority">Priority</label>
               <div class="col-md-6">
                 <select id="priority" ng-model="priority" ng-change="setPriority(priority)" name="priority" type="text" class="form-control">
-                    <option ng-repeat="priority in config.priority.sort()"  value="{{priority.level}}">
+                    <option ng-repeat="priority in config.priority"  value="{{priority}}">
                     {{priority.level}} - {{priority.title}}</option>
                 </select>
               </div>
